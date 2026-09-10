@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Teacher Panel — English Writing Assessment</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main class="container wide">
+  <section id="teacherLogin" class="card">
+    <h1>Teacher Panel</h1>
+    <p>Enter the teacher panel key.</p>
+    <label>Teacher Key<input id="teacherKey" type="password" autocomplete="off"></label>
+    <button id="teacherLoginBtn">Login</button>
+    <p id="teacherLoginMsg" class="message"></p>
+  </section>
+
+  <section id="teacherView" class="hidden">
+    <div class="topbar">
+      <div>
+        <h1>Teacher Panel</h1>
+        <p id="teacherAssessmentLabel"></p>
+      </div>
+      <button id="logoutBtn" class="secondary">Logout</button>
+    </div>
+
+    <section class="card">
+      <h2>Assessment</h2>
+      <div class="row">
+        <select id="assessmentSelect"></select>
+        <button id="refreshBtn" class="secondary">Refresh</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Assessment Settings</h2>
+      <div class="grid">
+        <label>Title<input id="setTitle"></label>
+        <label>Duration (minutes)<input id="setDuration" type="number" min="1"></label>
+        <label>Google Docs Template ID<input id="setTemplateId"></label>
+        <label>Output Folder ID<input id="setFolderId"></label>
+        <label>Teacher Email<input id="setTeacherEmail" type="email"></label>
+      </div>
+      <button id="saveSettingsBtn">Save Settings</button>
+      <p id="settingsMsg" class="message"></p>
+    </section>
+
+    <section class="card">
+      <h2>Student Progress</h2>
+      <div class="tableWrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Student</th><th>Class</th><th>Status</th><th>Started</th>
+              <th>Submitted</th><th>Violations</th><th>Document</th>
+            </tr>
+          </thead>
+          <tbody id="progressBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </section>
+</main>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/teacher.js"></script>
+</body>
+</html>

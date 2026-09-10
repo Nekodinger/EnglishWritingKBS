@@ -12,7 +12,7 @@ async function loginTeacher(){
   try{
     const d=await api("teacherAssessments",{teacherKey});
     assessments=d.assessments||[];
-    if(!assessments.length) throw new Error("No assessments found.");
+    if(!assessments.length){$("teacherLoginMsg").textContent="Kode guru benar, tapi belum ada data assessment di sheet ASSESSMENTS. Tambahkan minimal satu baris assessment lalu klik Login lagi.";return;}
     $("assessmentSelect").innerHTML=assessments.map(a=>`<option value="${esc(a.id)}">${esc(a.title)}</option>`).join("");
     currentAssessment=assessments[0].id;
     hide("teacherLogin"); show("teacherView");
